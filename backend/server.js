@@ -2,13 +2,19 @@ import express from "express";
 import * as dotenv from "dotenv";
 dotenv.config();
 import noteRoute from './routes/noteRoute.js'
+import connectDB from "./config/db.js";
 
 const app = express()
 const PORT = process.env.PORT || 6500
 
+connectDB()
+
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
+
 // path      http:localhost:8000/
 app.get('/', (req, res) => {
-    console.log(process.env)
+    // console.log(process.env)
     res.json({message: "Hello Home"})
 })
 

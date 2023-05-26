@@ -1,30 +1,13 @@
 import express from "express";
+import { createNote, deleteNote, getNotes, updateNote } from "../controllers/noteController.js";
 
 const router = express.Router()
 
 
-// Path             --> http://localhost:9000/api/note
-// Description      --> Read a note
-router.get('/', (req, res) => {
-    res.json({message: "Read a Note"})
-})
 
-// Path             --> http://localhost:9000/api/note
-// Description      --> Create a note
-router.post('/', (req, res) => {
-    res.json({message: "Create a Note"})
-})
-
-// Path             --> http://localhost:9000/api/note
-// Description      --> Update a note
-router.put('/:id', (req, res) => {
-    res.json({message: "Create a Note"})
-})
-
-// Path             --> http://localhost:9000/api/note
-// Description      --> Delete a note
-router.delete('/:id', (req, res) => {
-    res.json({message: "Delete a Note"})
-})
+router.get('/', getNotes)
+router.post('/', createNote)
+router.put('/:id', updateNote)
+router.delete('/:id', deleteNote)
 
 export default router
