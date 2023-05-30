@@ -1,12 +1,12 @@
 import { apiSlice } from "./apiSlice";
 
-const NOTE_URL = "/api/note/";
+// const NOTE_URL = "/abc/posts";
 
 const noteApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getNotes: builder.query({
-      query: () => ({
-        url: `http://localhost:9000/api/note/`,
+      query: (id = "6475f3170e154fbdd1936bed") => ({
+        url: `foo/api/note/${id}`,
         method: "GET",
       }),
     }),
