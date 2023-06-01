@@ -5,12 +5,16 @@ import { apiSlice } from "./apiSlice";
 const noteApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getNotes: builder.query({
-      query: (id = "6475f3170e154fbdd1936bed") => ({
-        url: `foo/api/note/${id}`,
-        method: "GET",
+      query: () => ({
+        url: `/foo/api/note`,
+      }),
+    }),
+    getNote: builder.query({
+      query: (detail_id) => ({
+        url: `/foo/api/note/${detail_id}`,
       }),
     }),
   }),
 });
 
-export const { useGetNotesQuery } = noteApiSlice;
+export const { useGetNotesQuery, useGetNoteQuery } = noteApiSlice;

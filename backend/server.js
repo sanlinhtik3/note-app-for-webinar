@@ -3,7 +3,6 @@ import * as dotenv from "dotenv";
 dotenv.config();
 import noteRoute from './routes/noteRoute.js'
 import connectDB from "./config/db.js";
-// import cors from 'cors'
 
 const app = express()
 const PORT = process.env.PORT || 6500
